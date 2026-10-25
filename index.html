@@ -24,6 +24,18 @@ input::placeholder,textarea::placeholder{color:#8295ad}
 .notice{background:#3b301b;color:#ffe6ab}
 .listitem{border-bottom-color:#34445c}
 code{background:#263951;color:#e5edf7}
+
+/* Reading comfort improvements for long exam questions */
+#quiz{background:#1b293d;border-color:#435570}
+#question{color:#f8fafc;font-size:22px;font-weight:700;line-height:1.8;letter-spacing:.015em;overflow-wrap:anywhere}
+#options{margin-top:20px}
+#options .option{font-family:inherit;font-size:17px;font-weight:500;line-height:1.85;letter-spacing:.012em;padding:17px 20px;margin:12px 0;background:#25364d;color:#f1f5f9;border:1px solid #53657d;white-space:pre-wrap;overflow-wrap:anywhere}
+#options .option:hover{background:#2d4360;border-color:#93b4df}
+#options .option.selected{background:#244b79;border:2px solid #93c5fd;color:#fff}
+#options .option.correct{background:#164734;border:2px solid #4ade80;color:#f0fdf4}
+#options .option.wrong{background:#592b35;border:2px solid #f87171;color:#fff1f2}
+#explanation{font-size:16px;line-height:1.8;white-space:pre-wrap}
+@media(max-width:600px){#question{font-size:19px;line-height:1.75}#options .option{font-size:16px;line-height:1.75;padding:14px 15px}}
 </style></head><body><header><h1>나만의 CBT</h1><small>문제은행 · 랜덤 학습 · 오답 복습 · 학습 통계</small></header>
 <main><nav class="tabs"><button data-tab="home" class="active">문제 풀기</button><button data-tab="manage">문제 관리</button><button data-tab="wrong">오답노트</button><button data-tab="stats">학습 통계</button><button data-tab="backup">백업·복원</button></nav>
 <section id="home" class="panel"><h2>학습 시작</h2><div id="overview" class="muted"></div><div class="grid"><div><label>시험</label><select id="exam"></select></div><div><label>과목</label><select id="subject"></select></div><div><label>문제 수</label><select id="count"><option>5</option><option selected>10</option><option>20</option><option>50</option><option value="99999">전체</option></select></div><div><label>출제 방식</label><select id="mode"><option value="new">덜 푼 문제 우선</option><option value="random">무작위</option><option value="wrong">오답만</option></select></div></div><div class="actions"><button class="primary" id="start">문제 풀기</button></div><p class="muted">문제를 등록하기 전에는 연습문제 3개가 들어 있어요. 언제든 삭제할 수 있습니다.</p></section>

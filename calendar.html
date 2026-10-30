@@ -13,9 +13,9 @@
 <script>
 (function(){const error=document.getElementById('error');if(!window.FullCalendar){error.hidden=false;error.textContent='캘린더 라이브러리를 불러오지 못했습니다. 현재 네트워크에서 CDN 접속이 차단되었을 수 있습니다.';return;}
 try{const calendar=new FullCalendar.Calendar(document.getElementById('calendar'),{
-locale:'ko',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'},
-buttonText:{today:'오늘',month:'월',week:'주',day:'일'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
+locale:'ko',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
+buttonText:{today:'오늘'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
 editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[],
-windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'}:{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'});}
+windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:''}:{left:'prev,next today',center:'title',right:''});}
 });calendar.render();}catch(e){error.hidden=false;error.textContent='캘린더 표시 중 오류가 발생했습니다: '+e.message;}})();
 </script></body></html>

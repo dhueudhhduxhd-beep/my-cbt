@@ -15,7 +15,7 @@
 try{const calendar=new FullCalendar.Calendar(document.getElementById('calendar'),{
 locale:'ko',initialDate:'2027-01-30',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
 buttonText:{today:'오늘'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
-editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[{title:'회계관리 1급 제135회 시험',start:'2027-01-30',allDay:true,backgroundColor:'#2563eb',borderColor:'#2563eb'}],
+editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[{title:'회계관리 1급 원서접수',start:'2027-01-05',end:'2027-01-13',allDay:true,backgroundColor:'#0d9488',borderColor:'#0d9488'},{title:'회계관리 1급 시험',start:'2027-01-30',allDay:true,backgroundColor:'#2563eb',borderColor:'#2563eb'}],
 windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:''}:{left:'prev,next today',center:'title',right:''});}
 });calendar.render();}catch(e){error.hidden=false;error.textContent='캘린더 표시 중 오류가 발생했습니다: '+e.message;}})();
 </script></body></html>

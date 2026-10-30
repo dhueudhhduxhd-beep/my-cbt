@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>캘린더 | MY PORTAL</title>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.19/index.global.min.js"></script>
+<style>
+:root{font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color-scheme:dark;background:#0a1424;color:#e5edf7}*{box-sizing:border-box}body{margin:0}header{background:#101e33;border-bottom:1px solid #29384f;padding:20px max(18px,calc((100vw - 1060px)/2))}header h1{font-size:23px;margin:0 0 5px}header small{color:#a5b6cc}main{max-width:1060px;margin:24px auto;padding:0 16px}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}nav a{color:#e5edf7;background:#22324a;border:1px solid #41536d;border-radius:10px;padding:10px 14px;text-decoration:none;font-size:14px}nav a.active{background:#2563eb;border-color:#60a5fa}.panel{background:#14243a;border:1px solid #30415a;border-radius:16px;padding:20px}.notice{color:#a9b9cc;font-size:14px;line-height:1.6;margin:16px 0 0}.error{color:#fca5a5}
+#calendar{min-height:500px;--fc-page-bg-color:#14243a;--fc-neutral-bg-color:#203149;--fc-neutral-text-color:#cbd5e1;--fc-border-color:#34445c;--fc-today-bg-color:#203d5b;--fc-list-event-hover-bg-color:#263951;--fc-button-bg-color:#22324a;--fc-button-border-color:#41536d;--fc-button-hover-bg-color:#2d4360;--fc-button-hover-border-color:#93b4df;--fc-button-active-bg-color:#2563eb;--fc-button-active-border-color:#60a5fa;--fc-event-bg-color:#2563eb;--fc-event-border-color:#2563eb}
+.fc{color:#e5edf7}.fc .fc-col-header-cell-cushion,.fc .fc-daygrid-day-number,.fc .fc-list-day-text,.fc .fc-list-day-side-text{color:#e5edf7;text-decoration:none}.fc .fc-toolbar-title{font-size:21px}.fc .fc-button{font-size:13px}.fc .fc-list-event:hover td{background:#263951}.fc .fc-timegrid-slot-label,.fc .fc-timegrid-axis-cushion{color:#cbd5e1}
+@media(max-width:650px){.panel{padding:10px}.fc .fc-toolbar{gap:12px;flex-wrap:wrap}.fc .fc-toolbar-title{font-size:17px}.fc .fc-button{font-size:12px;padding:6px 8px}header{padding:18px}#calendar{min-height:420px}}
+</style></head><body><header><h1>캘린더</h1><small>MY PORTAL</small></header>
+<main><nav aria-label="주요 메뉴"><a href="./index.html">MY CBT</a><a href="./calendar.html" class="active" aria-current="page">캘린더</a></nav>
+<section class="panel"><div id="calendar" aria-label="캘린더"></div><p class="notice">FullCalendar 기반 화면 미리보기입니다. 일정 등록·수정·삭제 및 동기화 기능은 아직 없습니다.</p><p id="error" class="error" role="alert" hidden></p></section></main>
+<script>
+(function(){const error=document.getElementById('error');if(!window.FullCalendar){error.hidden=false;error.textContent='캘린더 라이브러리를 불러오지 못했습니다. 현재 네트워크에서 CDN 접속이 차단되었을 수 있습니다.';return;}
+try{const calendar=new FullCalendar.Calendar(document.getElementById('calendar'),{
+locale:'ko',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'},
+buttonText:{today:'오늘',month:'월',week:'주',day:'일'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
+editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[],
+windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'}:{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay'});}
+});calendar.render();}catch(e){error.hidden=false;error.textContent='캘린더 표시 중 오류가 발생했습니다: '+e.message;}})();
+</script></body></html>

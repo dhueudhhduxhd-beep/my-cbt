@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>캘린더 | MY PORTAL</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color-scheme:dark;background:#0b1220;color:#e5edf7}*{box-sizing:border-box}body{margin:0}header{background:#111c2e;border-bottom:1px solid #29384f;padding:20px max(18px,calc((100vw - 1060px)/2))}header h1{font-size:23px;margin:0 0 5px}header small{color:#a5b6cc}main{max-width:1060px;margin:24px auto;padding:0 16px}nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}a,button{color:#e5edf7;background:#22324a;border:1px solid #41536d;border-radius:10px;padding:10px 14px;text-decoration:none;font:inherit;font-size:14px;cursor:pointer}a.active{background:#2563eb;border-color:#60a5fa}button:hover,a:hover{border-color:#93c5fd}.panel{background:#162236;border:1px solid #30415a;border-radius:16px;padding:20px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:20px}.controls{display:flex;gap:8px;align-items:center}.toolbar h2{margin:0;font-size:21px}.calendar{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.weekday{text-align:center;color:#a9b9cc;padding:10px 0;font-size:13px}.day{border:1px solid #34445c;border-radius:9px;min-height:103px;padding:10px;background:#1b293d;font-size:14px}.day.outside{opacity:.35}.day.today{border:2px solid #60a5fa}.day .number{font-weight:650}.empty{font-size:12px;color:#7f93ad;margin-top:12px}.notice{color:#a9b9cc;font-size:14px;line-height:1.6;margin:16px 0 0}@media(max-width:650px){.panel{padding:12px}.day{min-height:65px;padding:6px}.empty{display:none}.toolbar h2{font-size:18px}header{padding:18px}.weekday{font-size:12px}}
+</style></head><body>
+<header><h1>MY PORTAL</h1><small>개인 학습 · 일정 관리</small></header>
+<main><nav aria-label="주요 메뉴"><a href="./index.html">MY CBT</a><a href="./calendar.html" class="active" aria-current="page">캘린더</a></nav>
+<section class="panel"><div class="toolbar"><h2 id="monthTitle"></h2><div class="controls"><button id="prev" type="button" aria-label="이전 달">‹</button><button id="today" type="button">오늘</button><button id="next" type="button" aria-label="다음 달">›</button></div></div>
+<div class="calendar" id="calendar" role="grid" aria-label="월간 캘린더"></div><p class="notice">현재는 캘린더 화면만 제공하는 초기 버전입니다. 일정 등록·수정·삭제 및 외부 동기화 기능은 아직 없습니다.</p></section></main>
+<script>
+const now=new Date();let year=now.getFullYear(),month=now.getMonth();
+const title=document.getElementById('monthTitle'),grid=document.getElementById('calendar');
+function render(){title.textContent=year+'년 '+(month+1)+'월';grid.replaceChildren();['일','월','화','수','목','금','토'].forEach(w=>{const e=document.createElement('div');e.className='weekday';e.textContent=w;grid.append(e)});
+const first=new Date(year,month,1).getDay(),last=new Date(year,month+1,0).getDate();
+const total=Math.ceil((first+last)/7)*7;
+for(let i=0;i<total;i++){const d=i-first+1;const cell=document.createElement('div');cell.className='day'+(d<1||d>last?' outside':'')+(d===now.getDate()&&month===now.getMonth()&&year===now.getFullYear()?' today':'');cell.setAttribute('role','gridcell');
+if(d>=1&&d<=last){const n=document.createElement('span');n.className='number';n.textContent=d;cell.append(n);cell.setAttribute('aria-label',year+'년 '+(month+1)+'월 '+d+'일');}
+grid.append(cell);}}
+function shift(n){const d=new Date(year,month+n,1);year=d.getFullYear();month=d.getMonth();render()}
+document.getElementById('prev').addEventListener('click',()=>shift(-1));document.getElementById('next').addEventListener('click',()=>shift(1));document.getElementById('today').addEventListener('click',()=>{year=now.getFullYear();month=now.getMonth();render()});render();
+</script></body></html>

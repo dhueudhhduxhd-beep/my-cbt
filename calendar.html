@@ -9,13 +9,13 @@
 @media(max-width:650px){.panel{padding:10px}.fc .fc-toolbar{gap:12px;flex-wrap:wrap}.fc .fc-toolbar-title{font-size:17px}.fc .fc-button{font-size:12px;padding:6px 8px}header{padding:18px}#calendar{min-height:420px}}
 </style></head><body><header><h1>캘린더</h1><small>MY PORTAL</small></header>
 <main><nav aria-label="주요 메뉴"><a href="./index.html">MY CBT</a><a href="./calendar.html" class="active" aria-current="page">캘린더</a></nav>
-<section class="panel"><div id="calendar" aria-label="캘린더"></div><p class="notice">2026년 제49회 손해사정사 1차 확정 일정 3건을 시험 표시 중입니다. 일정 등록·수정·삭제 및 동기화 기능은 아직 없습니다.</p><p id="error" class="error" role="alert" hidden></p></section></main>
+<section class="panel"><div id="calendar" aria-label="캘린더"></div><p class="notice">2027년 1월 회계관리 1급 제135회 시험일을 표시 중입니다. 주관기관 공고에서 최종 일정을 확인하세요. 일정 등록·수정·삭제 및 동기화 기능은 아직 없습니다.</p><p id="error" class="error" role="alert" hidden></p></section></main>
 <script>
 (function(){const error=document.getElementById('error');if(!window.FullCalendar){error.hidden=false;error.textContent='캘린더 라이브러리를 불러오지 못했습니다. 현재 네트워크에서 CDN 접속이 차단되었을 수 있습니다.';return;}
 try{const calendar=new FullCalendar.Calendar(document.getElementById('calendar'),{
-locale:'ko',initialDate:'2026-04-12',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
+locale:'ko',initialDate:'2027-01-30',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
 buttonText:{today:'오늘'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
-editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[{title:'손해사정사 1차 원서접수',start:'2026-02-24',end:'2026-02-28',allDay:true,backgroundColor:'#2563eb',borderColor:'#2563eb'},{title:'손해사정사 1차 시험',start:'2026-04-12',allDay:true,backgroundColor:'#0d9488',borderColor:'#0d9488'},{title:'손해사정사 1차 합격자 발표',start:'2026-05-29',allDay:true,backgroundColor:'#7c3aed',borderColor:'#7c3aed'}],
+editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[{title:'회계관리 1급 제135회 시험',start:'2027-01-30',allDay:true,backgroundColor:'#2563eb',borderColor:'#2563eb'}],
 windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:''}:{left:'prev,next today',center:'title',right:''});}
 });calendar.render();}catch(e){error.hidden=false;error.textContent='캘린더 표시 중 오류가 발생했습니다: '+e.message;}})();
 </script></body></html>

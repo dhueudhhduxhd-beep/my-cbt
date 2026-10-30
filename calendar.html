@@ -13,7 +13,7 @@
 <script>
 (function(){const error=document.getElementById('error');if(!window.FullCalendar){error.hidden=false;error.textContent='캘린더 라이브러리를 불러오지 못했습니다. 현재 네트워크에서 CDN 접속이 차단되었을 수 있습니다.';return;}
 try{const calendar=new FullCalendar.Calendar(document.getElementById('calendar'),{
-locale:'ko',initialDate:'2027-01-30',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
+locale:'ko',initialView:'dayGridMonth',headerToolbar:{left:'prev,next today',center:'title',right:''},
 buttonText:{today:'오늘'},height:'auto',dayMaxEvents:true,nowIndicator:true,navLinks:false,
 editable:false,selectable:false,eventStartEditable:false,eventDurationEditable:false,events:[{title:'회계관리 1급 원서접수',start:'2027-01-05',end:'2027-01-13',allDay:true,backgroundColor:'#0d9488',borderColor:'#0d9488'},{title:'회계관리 1급 시험',start:'2027-01-30',allDay:true,backgroundColor:'#2563eb',borderColor:'#2563eb'}],
 windowResize:function(){calendar.setOption('headerToolbar',window.innerWidth<650?{left:'prev,next today',center:'title',right:''}:{left:'prev,next today',center:'title',right:''});}
